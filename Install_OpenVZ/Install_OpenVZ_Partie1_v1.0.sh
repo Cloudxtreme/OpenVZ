@@ -47,7 +47,7 @@ echo "# We do not want all our interfaces to send redirects" >> /etc/sysctl.conf
 echo "net.ipv4.conf.default.send_redirects = 1" >> /etc/sysctl.conf
 echo "net.ipv4.conf.all.send_redirects = 0" >> /etc/sysctl.conf
 
-echo "L'ordinateur va redémarrer, vous pourrez lancé la partie 2\033[0m"
+echo "\033[31mL'ordinateur va redémarrer, vous pourrez lancé la partie 2\033[0m"
 read -p "Appuyer sur une touche pour redémarrer ..."
 
 reboot
