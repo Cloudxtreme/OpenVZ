@@ -17,7 +17,7 @@ if [[ $modif == "O" || $modif = "o" ]]; then
 		echo -e "\n\033[31mAdresse IP: \033[0m"; read ip;
 		echo -e "\n\033[31mMasque de sous réseu: \033[0m"; read mask;
 		echo -e "\n\033[31mPasserelle: \033[0m"; read gateway;
-		rm -rf /etc/network/interfaces
+		rm -rf /etc/network/interfaces;
 		echo -e "# This file describes the network interfaces available on your system
 # and how to activate them. For more information, see interfaces(5).
 
@@ -52,8 +52,8 @@ ip=`ifconfig eth0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}'`
 
 echo -e "\n\n\n\033[31mVoulez pourvoir recevoir du ping ? (O/n): \033[0m"; read ping;
 echo -e "\n\n\033[31mUtilisez-vous le protole ssh ? (O/n): \033[0m"; read shh;
-	if [[ $ssh == "O" || $shh = "o"]]; then
-		echo -e "\nQuel port utilisez-vous ? ('22', '2222'): \033[0m" read shh2;
+	if [[ $ssh == "O" || $shh = "o" ]]; then
+		echo -e "\nQuel port utilisez-vous ? ('22', '2222'): \033[0m"; read shh2;
 	fi
 
 echo -e "
