@@ -15,7 +15,7 @@ umount /vz
 
 sed '/\/vz/d' /etc/fstab > /etc/fstab2
 rm -rf /etc/fstab
-mv test2.txt /etc/fstab
+mv fstab2.txt /etc/fstab
 
 pvcreate /dev/sda3
 
