@@ -13,7 +13,7 @@ cat /etc/network/interfaces;
 echo -e "\n\n\033[31mAttention!! si vous choisissez de modifier la configuration réseau, l'ancienne version sera supprimer";
 echo -e "Voulez-vous modifier (O/n): \033[0m"; read modif;
 
-if [ $modif == "O" ]; then
+if [[ $modif == "O" || $modif = "o" ]]; then
 		echo -e "\n\033[31mAdresse IP: \033[0m"; read ip;
 		echo -e "\n\033[31mMasque de sous réseu: \033[0m"; read mask;
 		echo -e "\n\033[31mPasserelle: \033[0m"; read gateway;
@@ -31,28 +31,13 @@ iface eth0 inet static
 	address $ip
     netmask $mask
 	gateway $gateway" > /etc/network/interfaces
-		
-	elif [ $modif = "o" ]; then
-        rm -rf /etc/network/interfaces
-		echo -e "# This file describes the network interfaces available on your system
-# and how to activate them. For more information, see interfaces(5).
-
-# The loopback network interface
-auto lo
-iface lo inet loopback
-
-# The primary network interface
-allow-hotplug eth0
-iface eth0 inet static
-	address $ip
-    netmask $mask
-	gateway $gateway" > /etc/network/interfaces
-	
 fi
-echo -e "\n\033[31mVotre nouvelle configuration réseau est : \033[0m \n";
-cat /etc/network/interfaces;
-read -p "Appuyer sur une touche pour continuer ..."
 
+if [[ $modif == "O" || $modif = "o" ]]; then
+	echo -e "\n\033[31mVotre nouvelle configuration réseau est : \033[0m \n";
+	cat /etc/network/interfaces;
+	read -p "Appuyer sur une touche pour continuer ..."
+fi
 
 
 ######## Configuration NAT ########
@@ -65,10 +50,8 @@ apt-get install iptables
 
 echo -e "\n\nVoulez pourvoir recevoir du ping ? (O/n): \033[0m"; read ping;
 echo -e "\n\nUtilisez-vous le protole ssh ? (O/n): \033[0m"; read shh;
-	if [ $ssh == "O" ]; then
+	if [[ $ssh == "O" || $shh = "o"]]; then
 		echo -e "\nQuel port utilisez-vous ? ('22', '2222'): \033[0m"; read shh2;
-	elif [ $shh = "o" ]; then
-		echo -e "\nQuel port utilisez-vous ? ('22', '2222'): \033[0m\n\n"; read shh2;
 	fi
 	
 ip=`ifconfig eth0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}'` 
@@ -123,18 +106,12 @@ iptables -t nat -A POSTROUTING -s 0.0.0.0/0 -o eth0 -j SNAT --to $ip
 # Ouverture de port sur serveur
 #-------------------------------------------------------------------------
 " >> /etc/init.d/iptables
-if [ $ping == "O" ]; then
-	echo -e "## On autorise le ping
-			iptables -t filter -A INPUT -p icmp -j ACCEPT" >> /etc/init.d/iptables
-elif [ $ping = "o" ]; then
+if [[ $ping == "O" || $ping = "o" ]]; then
 	echo -e "## On autorise le ping
 			iptables -t filter -A INPUT -p icmp -j ACCEPT" >> /etc/init.d/iptables
 fi
 
-if [ $ssh == "O" ]; then
-		echo -e "## On autorise le ssh sur le port $ssh2
-				iptables -t filter -A INPUT -p tcp --dport $ssh2 -j ACCEPT" >> /etc/init.d/iptables
-	elif [ $shh = "o" ]; then
+if [[ $ssh == "O" || $ssh == "o"]]; then
 		echo -e "## On autorise le ssh sur le port $ssh2
 				iptables -t filter -A INPUT -p tcp --dport $ssh2 -j ACCEPT" >> /etc/init.d/iptables
 fi
@@ -146,4 +123,4 @@ echo -e "\n\033[31mVoici votre fichier de configuration NAT (/etc/init.d/iptable
 cat /etc/init.d/iptables
 
 echo -e "\n\n\033[31mConfiguration du NAT terminer\033[0m \n"
-read -p "Appuyer sur une touche pour continuer ..."
+read -p "Appuyer sur entrer pour continuer ..."
