@@ -53,7 +53,7 @@ ip=`ifconfig eth0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}'`
 echo -e "\n\n\n\033[31mVoulez pourvoir recevoir du ping ? (O/n): \033[0m"; read ping;
 echo -e "\n\n\033[31mUtilisez-vous le protole ssh ? (O/n): \033[0m"; read shh;
 	if [[ $ssh = "O" || $shh = "o" ]]; then
-		echo -e "\nQuel port utilisez-vous ? ('22', '2222'): \033[0m"; read shh2;
+		echo -e "\nQuel port utilisez-vous ? ('22', '2222'): \033[0m"; read ssh2;
 	fi
 
 echo -e "
