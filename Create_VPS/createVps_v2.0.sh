@@ -5,12 +5,12 @@
 # Déclaration des variables
 #-------------------------------------------------------------------------
 
-CTID="102";
-ip_address="192.168.3.2";
-name="MySQL";
-FQDN="MySQL";
-template="debian-7.0-x86_64";
-Volume="SrvMySQL";
+echo "Entrer le numéro du conteneur (ex: '101',102') :"; read CTID;
+echo "Entrer l'IP de conteneur (ex: '192.168.0.1') :"; read ip_address;
+echo "Entrer le nom du conteneur :"; read name;
+echo "Entrer le hostname du conteneur (FQDN) :"; read FQDN;
+echo "Entrer le template du conteneur (ex: 'debian-7.0-x86_64') :"; read template;
+echo "Entrer le nom du volume ou le conteneur sera stocker :"; read Volume;
 
 #-------------------------------------------------------------------------
 # Création
