@@ -1,4 +1,5 @@
 #!/bin/bash
+clear
 
 echo -e "\033[31mPartie 1 - Installation de l’environnement\033[0m"
 
