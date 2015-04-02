@@ -1,4 +1,6 @@
 #!/bin/bash
+# v1.0
+# par Dylan Leborgne http://dylanleborgne.ovh
 
 clear
 
