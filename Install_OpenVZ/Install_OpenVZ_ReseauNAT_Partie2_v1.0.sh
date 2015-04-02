@@ -111,7 +111,7 @@ if [[ $ping == "O" || $ping = "o" ]]; then
 			iptables -t filter -A INPUT -p icmp -j ACCEPT" >> /etc/init.d/iptables
 fi
 
-if [[ $ssh == "O" || $ssh == "o"]]; then
+if [[ $ssh == "O" || $ssh == "o" ]]; then
 		echo -e "## On autorise le ssh sur le port $ssh2
 				iptables -t filter -A INPUT -p tcp --dport $ssh2 -j ACCEPT" >> /etc/init.d/iptables
 fi
