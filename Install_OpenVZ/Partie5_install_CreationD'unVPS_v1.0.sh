@@ -24,7 +24,7 @@ echo -e "\033[31mEntrer le hostname du conteneur (FQDN) :\033[0m"; read FQDN;
 echo -e "\033[31mListe des volumes disponibles:\033[0m";
 lvdisplay
 echo -e "\n\033[31mEntrer le nom du volume (LV Name) ou le conteneur sera stocker :\033[0m"; read Volume;
-echo -e "\n\n\033[31mUtiliser vous le mode NAT pour la configuration IP de votre VPS ? (O/n): \033[0m"; read NAT;
+echo -e "\n\033[31mUtiliser vous le mode NAT pour la configuration IP de votre VPS ? (O/n): \033[0m"; read NAT;
 if [[ $NAT = "O" || $NAT = "o" ]]; then
 	echo -e "\n\n\033[31mLe VPS utilisera t'elle un port particulier ? (O/n): \033[0m"; read port;
 		if [[ $port = "O" || $port = "o" ]]; then
