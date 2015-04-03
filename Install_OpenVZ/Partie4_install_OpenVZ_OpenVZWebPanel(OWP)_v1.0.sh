@@ -26,5 +26,5 @@ http://$ip:3000
 login: admin
 Mot de Passe : admin"
 
-echo -e "\n\nL'installation de OpenVZ Web Panel est terminer\033[0m \n"
+echo -e "\n\nL'installation de OpenVZ Web Panel est terminer, vous pourrez lancé la partie 5\033[0m \n"
 read -p "Appuyer sur entrer pour continuer ..."
