@@ -13,7 +13,7 @@ wget -O - http://ovz-web-panel.googlecode.com/svn/installer/ai.sh | sh
 
 /etc/init.d/owp reload
 
-echo "
+echo -e "
 SHELL=/bin/sh
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 # m   h  dom mon dow   command
