@@ -107,13 +107,15 @@ iptables -t nat -A POSTROUTING -s 0.0.0.0/0 -o eth0 -j SNAT --to $ip
 #-------------------------------------------------------------------------
 " >> /etc/init.d/iptables
 if [[ $ping = "O" || $ping = "o" ]]; then
-	echo -e "## On autorise le ping
-			iptables -t filter -A INPUT -p icmp -j ACCEPT" >> /etc/init.d/iptables
+	echo -e "
+## On autorise le ping
+iptables -t filter -A INPUT -p icmp -j ACCEPT" >> /etc/init.d/iptables
 fi
 
 if [[ $ssh = "O" || $ssh = "o" ]]; then
-		echo -e "## On autorise le ssh sur le port $ssh2
-				iptables -t filter -A INPUT -p tcp --dport $ssh2 -j ACCEPT" >> /etc/init.d/iptables
+		echo -e "
+## On autorise le ssh sur le port $ssh2
+iptables -t filter -A INPUT -p tcp --dport $ssh2 -j ACCEPT" >> /etc/init.d/iptables
 fi
 
 echo -e "\n\033[31mVoici votre fichier de configuration NAT (/etc/init.d/iptables) \033[0m \n"
