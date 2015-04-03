@@ -10,7 +10,7 @@ echo -e "\033[31mPartie 2 - Configuration réseaux en NAT pour les VPS";
 ######## Configuration réseau ########
 echo -e "Votre configuration réseau est : \033[0m \n";
 cat /etc/network/interfaces;
-echo -e "\n\n\033[31mAttention!! si vous choisissez de modifier la configuration réseau, l'ancienne version sera supprimer";
+echo -e "\n\033[31mAttention!! si vous choisissez de modifier la configuration réseau, l'ancienne version sera supprimer";
 echo -e "Voulez-vous modifier (O/n): \033[0m"; read modif;
 
 if [[ $modif == "O" || $modif = "o" ]]; then
