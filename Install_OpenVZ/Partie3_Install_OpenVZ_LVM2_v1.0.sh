@@ -42,5 +42,5 @@ echo -e "
 
 mount -a
 
-echo -e "\n\n\033[31mVotre volume logique est prêt\033[0m"
+echo -e "\n\n\033[31mVotre volume logique est prêt, vous pourrez lancé la partie 4\033[0m"
 lvdisplay
