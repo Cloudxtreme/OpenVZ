@@ -28,7 +28,7 @@ echo -e "\n\033[31mUtiliser vous le mode NAT pour la configuration IP de votre V
 if [[ $NAT = "O" || $NAT = "o" ]]; then
 	echo -e "\n\033[31mLe VPS utilisera t'elle un port particulier ? (O/n): \033[0m"; read port;
 		if [[ $port = "O" || $port = "o" ]]; then
-			echo -e "\nQuel port utilisera t'elle ? ('22', '80'): \033[0m"; read port2;
+			echo -e "\n\033[31mQuel port utilisera t'elle ? ('22', '80'): \033[0m"; read port2;
 		fi
 fi
 
