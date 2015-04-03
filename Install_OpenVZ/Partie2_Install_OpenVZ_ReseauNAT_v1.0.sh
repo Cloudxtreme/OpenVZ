@@ -119,5 +119,5 @@ fi
 echo -e "\n\033[31mVoici votre fichier de configuration NAT (/etc/init.d/iptables) \033[0m \n"
 cat /etc/init.d/iptables
 
-echo -e "\n\n\033[31mConfiguration du NAT terminer\033[0m \n"
+echo -e "\n\n\033[31mConfiguration du NAT terminer, vous pourrez lancé la partie 3\033[0m \n"
 read -p "Appuyer sur entrer pour continuer ..."
