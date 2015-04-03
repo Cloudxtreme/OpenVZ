@@ -3,7 +3,7 @@
 # par Dylan Leborgne http://dylanleborgne.ovh
 clear
 
-echo -e "\033[31mPartie5 - Creation D'un VPS\033[0m \n\n";
+echo -e "\033[31mPartie5 - Creation D'un VPS\033[0m";
 
 echo -e "
 \n\033[31mTelechargement d'un templates\n
@@ -17,13 +17,13 @@ vztmpl-dl $template
 # Déclaration des variables
 #-------------------------------------------------------------------------
 
-echo "\n\n\033[31mEntrer le numéro du conteneur (ex: '101',102')\033[0m:"; read CTID;
-echo "\033[31mEntrer l'IP de conteneur (ex: '192.168.0.1') :\033[0m"; read ip_address;
-echo "\033[31mEntrer le nom du conteneur :\033[0m"; read name;
-echo "\033[31mEntrer le hostname du conteneur (FQDN) :\033[0m"; read FQDN;
-echo "\033[31mListe des volumes disponibles:\033[0m";
+echo -e "\n\n\033[31mEntrer le numéro du conteneur (ex: '101',102')\033[0m:"; read CTID;
+echo -e "\033[31mEntrer l'IP de conteneur (ex: '192.168.0.1') :\033[0m"; read ip_address;
+echo -e "\033[31mEntrer le nom du conteneur :\033[0m"; read name;
+echo -e "\033[31mEntrer le hostname du conteneur (FQDN) :\033[0m"; read FQDN;
+echo -e "\033[31mListe des volumes disponibles:\033[0m";
 lvdisplay
-echo "\n\n\033[31mEntrer le nom du volume (LV Name) ou le conteneur sera stocker :\033[0m"; read Volume;
+echo -e "\n\n\033[31mEntrer le nom du volume (LV Name) ou le conteneur sera stocker :\033[0m"; read Volume;
 
 #-------------------------------------------------------------------------
 # Création
@@ -59,12 +59,12 @@ vzctl start $CTID
 # Démarage au boot du server OpenVZ
 vzctl set $CTID --onboot yes —save
 
-echo "\n\n\033[31mVotre conteneur est cree:\033[0m";
-# Affichage VPS actifes
-vzlist
-
 # Reload OWP
 /etc/init.d/owp reload
+
+echo -e "\n\n\033[31mVotre conteneur est cree:\033[0m";
+# Affichage VPS actifes
+vzlist
 
 echo -e "\n\n\033[31mLa creation Du VPS est terminer, ainsi que l'installation de OpenVZ\033[0m \n"
 read -p "Appuyer sur entrer pour continuer ..."
