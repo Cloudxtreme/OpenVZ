@@ -21,7 +21,7 @@ echo -e "\n\033[31mEntrer le numéro du conteneur (ex: '101',102')\033[0m:"; rea
 echo -e "\033[31mEntrer l'IP de conteneur (ex: '192.168.0.1') :\033[0m"; read ip_address;
 echo -e "\033[31mEntrer le nom du conteneur :\033[0m"; read name;
 echo -e "\033[31mEntrer le hostname du conteneur (FQDN) :\033[0m"; read FQDN;
-echo -e "\033[31mEntrer la taille disque du conteneur (en kilo, ex: '2000000k' pour 2g) :\033[0m"; read disque;
+echo -e "\033[31mEntrer la taille disque du conteneur (en kilo, ex: '2000000' pour 2g) :\033[0m"; read disque;
 echo -e "\033[31mListe des volumes disponibles:\033[0m";
 lvdisplay
 echo -e "\n\033[31mEntrer le nom du volume (LV Name) ou le conteneur sera stocker :\033[0m"; read Volume;
