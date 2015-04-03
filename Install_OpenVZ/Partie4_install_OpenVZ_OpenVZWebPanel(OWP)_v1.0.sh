@@ -1,6 +1,7 @@
 #!/bin/bash
 #v1.0
 # par Dylan Leborgne http://dylanleborgne.ovh
+clear
 
 echo -e "\033[31mPartie 4 - Installation de OpenVZ Web Panel (OWP)\033[0m \n\n";
 
