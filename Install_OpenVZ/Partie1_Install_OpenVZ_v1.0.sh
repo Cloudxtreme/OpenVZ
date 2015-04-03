@@ -52,7 +52,7 @@ echo "net.ipv4.conf.all.send_redirects = 0" >> /etc/sysctl.conf
 
 apt-get install vzctl vzquota vzstats
 
-echo "\033[31mL'ordinateur va redémarrer, vous pourrez lancé la partie 2\033[0m"
+echo -e "\033[31mL'ordinateur va redémarrer, vous pourrez lancé la partie 2\033[0m"
 read -p "Appuyer sur une touche pour redémarrer ..."
 
 reboot
