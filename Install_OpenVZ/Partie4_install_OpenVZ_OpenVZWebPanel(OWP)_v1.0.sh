@@ -5,7 +5,7 @@ clear
 
 echo -e "\033[31mPartie 4 - Installation de OpenVZ Web Panel (OWP)\033[0m \n\n";
 
-apt-get insatll ruby1.8
+apt-get install ruby1.8
 
 ln -fs /usr/bin/ruby1.8 /etc/alternatives/ruby
 
