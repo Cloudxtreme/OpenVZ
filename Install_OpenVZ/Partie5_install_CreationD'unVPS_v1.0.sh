@@ -80,7 +80,7 @@ if [[ $port = "O" || $port = "o" ]]; then
 	
 ## Routage port 80 vers VE
 iptables -t nat -A PREROUTING -p tcp -d $ip --dport $port2 \
-  -i eth0 -j DNAT --to-destination $ip_address:$port2)" >> /etc/init.d/iptables
+  -i eth0 -j DNAT --to-destination $ip_address:$port2" >> /etc/init.d/iptables
 fi
 
 echo -e "\n\n\033[31mVotre conteneur est cree:\033[0m";
