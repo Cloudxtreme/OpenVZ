@@ -21,10 +21,10 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
   
 ip=`ifconfig eth0 | grep 'inet adr:' | cut -d: -f2 | awk '{ print $1}'` 
   
-echo -e "\033[31mVotre interface OWP est accessible depuis votre navigateur à:
+echo -e "\n\n\033[31mVotre interface OWP est accessible depuis votre navigateur à:
 http://$ip:3000
 login: admin
-Mot de Passe : admin\033[31m";
+Mot de Passe : admin"
 
-echo -e "\n\n\033[31mL'installation de OpenVZ Web Panel est terminer\033[0m \n"
+echo -e "\n\nL'installation de OpenVZ Web Panel est terminer\033[0m \n"
 read -p "Appuyer sur entrer pour continuer ..."
