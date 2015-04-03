@@ -13,9 +13,9 @@ apt-key add archive.key
 
 rm -rf archive.key
 
-apt-get update
+apt-get update | echo "O"
 
-apt-get install linux-image-openvz-amd64
+apt-get install linux-image-openvz-amd64 | echo "O"
 
 noyau=$(uname -r)
 
