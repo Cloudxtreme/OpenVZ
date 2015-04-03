@@ -24,6 +24,13 @@ echo -e "\033[31mEntrer le hostname du conteneur (FQDN) :\033[0m"; read FQDN;
 echo -e "\033[31mListe des volumes disponibles:\033[0m";
 lvdisplay
 echo -e "\n\033[31mEntrer le nom du volume (LV Name) ou le conteneur sera stocker :\033[0m"; read Volume;
+echo -e "\n\n\033[31mUtiliser vous le mode NAT pour la configuration IP de votre VPS ? (O/n): \033[0m"; read NAT;
+if [[ $NAT = "O" || $NAT = "o" ]]; then
+	echo -e "\n\n\033[31mLe VPS utilisera t'elle un port particulier ? (O/n): \033[0m"; read port;
+		if [[ $port = "O" || $port = "o" ]]; then
+			echo -e "\nQuel port utilisera t'elle ? ('22', '2222'): \033[0m"; read port2;
+		fi
+fi
 
 #-------------------------------------------------------------------------
 # Création
@@ -61,6 +68,19 @@ vzctl set $CTID --onboot yes —save
 
 # Reload OWP
 /etc/init.d/owp reload
+
+ip=`ifconfig eth0 | grep 'inet adr:' | cut -d: -f2 | awk '{ print $1}'` 
+
+if [[ $port = "O" || $port = "o" ]]; then
+	echo -e "
+#-------------------------------------------------------------------------
+# Routage de port internet vers VE
+#-------------------------------------------------------------------------
+	
+## Routage port 80 vers VE
+iptables -t nat -A PREROUTING -p tcp -d $ip --dport $port2 \
+  -i eth0 -j DNAT --to-destination $ip_address:$port2)" >> /etc/init.d/iptables
+fi
 
 echo -e "\n\n\033[31mVotre conteneur est cree:\033[0m";
 # Affichage VPS actifes
