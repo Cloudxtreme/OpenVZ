@@ -19,6 +19,9 @@ apt-get install linux-image-openvz-amd64
 
 noyau=$(uname -r)
 
+echo -e "\033[31mSuppression du noyau, veuillez choisir non sur l'ecran suivant\033[0m"
+read -p "Appuyer sur une touche pour continuer ..."
+
 apt-get remove $noyau
 
 sed '/net.ipv4.ip_forward = 1/d' /etc/sysctl.conf
