@@ -236,7 +236,7 @@ if [[ $selectVPS == "O" || $selectVPS = "o" ]]; then
         	clear
 			echo -e "\033[31mCreation D'un VPS\033[0m";
 			
-			echo -e "\n\033[31mTelechargement d'un templates\nListe des templates disponible\n\033[0m";
+			echo -e "\n\033[31mTelechargement d'un templates\n\nListe des templates disponible:\n\033[0m";
 			vztmpl-dl --list-remote
 			echo -e "\n\033[31mEntrer le nom d'un template (ex: debian-7.0-x86_64-minimal):\033[0m"; read template;
 			vztmpl-dl $template
@@ -247,8 +247,7 @@ if [[ $selectVPS == "O" || $selectVPS = "o" ]]; then
 			#-------------------------------------------------------------------------
 			
 			clear
-			
-			echo -e "\n\033[31mEntrer le numéro du conteneur (ex: '101',102'):\033[0m"; read CTID;
+			echo -e "\033[31mEntrer le numéro du conteneur (ex: '101',102'):\033[0m"; read CTID;
 			echo -e "\033[31mEntrer l'IP de conteneur (ex: '192.168.0.1') :\033[0m"; read ip_address;
 			echo -e "\033[31mEntrer le nom du conteneur :\033[0m"; read name;
 			echo -e "\033[31mEntrer le hostname du conteneur (FQDN) :\033[0m"; read FQDN;
@@ -318,7 +317,7 @@ iptables -t nat -A PREROUTING -p tcp -d $ip --dport $port2 \
 			# Affichage VPS actifes
 			vzlist
 			
-			echo -e "\n\033[31mLa creation Du VPS est terminer\033[0m \n"
+			echo -e "\n\033[31mLa creation Du VPS est terminer\033[0m"
 fi
 echo -e "\n\033[31ml'installation de OpenVZ\033[0m \n"
 read -p "Appuyer sur entrer pour continuer ..."
