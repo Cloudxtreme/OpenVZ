@@ -51,25 +51,20 @@ vzctl set $CTID --ram $ram --swap 1G --save
 # Affectation d’une IP
 vzctl set $CTID --ipadd $ip_address --save
 
-
 # Affectation d’un nom plus facile à retenir que le CTID (MvWeb1 au lieu de « 101 »)!
 vzctl set $CTID --name $name --save
-
 
 # Affectation d’un nom d’host (FQDN)
 vzctl set $CTID --hostname $FQDN --save
 
-
 # Affectation d’un nom serveur DNS
 vzctl set $CTID --nameserver 8.8.8.8 --save
 
+# Démarage au boot du server OpenVZ
+vzctl set $CTID --onboot yes --save
 
 # Démarrage  du container
 vzctl start $CTID
-
-
-# Démarage au boot du server OpenVZ
-vzctl set $CTID --onboot yes --save
 
 # Reload OWP
 /etc/init.d/owp reload
