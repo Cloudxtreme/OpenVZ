@@ -37,7 +37,7 @@ fi
 # Création
 #-------------------------------------------------------------------------
 
-vzctl create $CTID --ostemplate $template --config basic --private=/var/lib/vz/private/$Volume/102 --diskspace=$disque
+vzctl create $CTID --ostemplate $template --config basic --private=/var/lib/vz/private/$Volume/$CTID --diskspace=$disque
 
 
 #-------------------------------------------------------------------------
