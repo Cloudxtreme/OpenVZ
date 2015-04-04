@@ -3,7 +3,7 @@
 # par Dylan Leborgne http://dylanleborgne.ovh
 clear
 
-echo -e "\033[31mPartie 2 - Install OpenVZ";
+echo -e "\033[31mPartie 2 - Fin d'installation d'OpenVZ";
 
 echo -e "\n\033[31mVoulez-vous configuration le réseaux en NAT pour les VPS (O/n): \033[0m"; read selectNAT;
 echo -e "\033[31mVoulez-vous installer et configuration LVM2 (O/n): \033[0m"; read selectLVM2;
