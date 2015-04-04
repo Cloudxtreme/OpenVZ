@@ -19,7 +19,7 @@ apt-get install linux-image-openvz-amd64
 
 noyau=$(uname -r)
 
-echo -e "\033[31mSuppression du noyau, veuillez choisir 'non' lorsque que l'on vous demandera d'annuler la suppression du noyau\033[0m"
+echo -e "\n\033[31mSuppression du noyau, veuillez choisir 'non' lorsque que l'on vous demandera d'annuler la suppression du noyau\033[0m"
 read -p "Appuyer sur une touche pour continuer ..."
 
 apt-get remove $noyau
