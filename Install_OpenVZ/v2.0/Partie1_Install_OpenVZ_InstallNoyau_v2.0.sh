@@ -1,7 +1,6 @@
 #!/bin/bash
 #v2.0
 # par Dylan Leborgne http://dylanleborgne.ovh
-
 clear
 
 echo -e "\033[31mPartie 1 - Installation de l’environnement\033[0m"
