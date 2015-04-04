@@ -46,7 +46,7 @@ vzctl create $CTID --ostemplate $template --config basic --private=/var/lib/vz/p
 #-------------------------------------------------------------------------
 
 # Affectation de la mémoire RAM
-vzctl set $CTID --lockedpages $ram --save --setmod restart
+vzctl set $CTID --ram $ram --save
 
 # Affectation d’une IP
 vzctl set $CTID --ipadd $ip_address --save
