@@ -10,8 +10,7 @@ echo -e "\033[31mVoulez-vous insatller et configuration LVM2 (O/n): \033[0m"; re
 echo -e "\033[31mVoulez-vous installer OpenVZ Web Panel (OWP) (O/n): \033[0m"; read selectOWP;
 echo -e "\033[31mVoulez-vous créé un VPS (O/n): \033[0m"; read selectVPS;
 
-case $selectNAT in
-        "O" | "o")
+if [[ $selectNAT == "O" || $selectNAT = "o" ]]; then
         	clear
 
 			echo -e "\033[31mPartie 2 - Configuration réseaux en NAT pour les VPS";
@@ -134,9 +133,8 @@ iptables -t filter -A INPUT -p tcp --dport $ssh2 -j ACCEPT" >> /etc/init.d/iptab
 			
 			echo -e "\n\n\033[31mConfiguration du NAT terminer, vous pourrez lancé la partie 3\033[0m \n"
 			read -p "Appuyer sur entrer pour continuer ..."
-			;;
-case $selectLVM2 in
-        "O" | "o")
+fi
+if [[ $selectLVM2 == "O" || $selectLVM2 = "o" ]]; then
         	
 			chmod +x /etc/init.d/iptables /etc/init.d/iptables
 			update-rc.d iptables defaults
@@ -187,9 +185,9 @@ case $selectLVM2 in
 			
 			echo -e "\n\033[31mLa configuration de LVM2 est terminer, vous pouvez lancé la partie 4\033[0m"
 			read -p "Appuyer sur entrer pour continuer ..."
-			;;
-case $selectOWP in
-        "O" | "o")
+fi
+if [[ $selectOWP == "O" || $selectOWP = "o" ]]; then
+
         	clear
 
 			echo -e "\033[31mPartie 4 - Installation de OpenVZ Web Panel (OWP)\033[0m \n\n";
@@ -238,9 +236,9 @@ Mot de Passe : admin"
 			
 			echo -e "\n\nL'installation de OpenVZ Web Panel est terminer, vous pourrez lancé la partie 5\033[0m \n"
 			read -p "Appuyer sur entrer pour continuer ..."
-        	;;
-case $selectOWP in
-        "O" | "o")
+fi
+if [[ $selectVPS == "O" || $selectVPS = "o" ]]; then
+
         	clear
 
 			echo -e "\033[31mPartie5 - Creation D'un VPS\033[0m";
@@ -330,4 +328,4 @@ iptables -t nat -A PREROUTING -p tcp -d $ip --dport $port2 \
 			
 			echo -e "\n\n\033[31mLa creation Du VPS est terminer, ainsi que l'installation de OpenVZ\033[0m \n"
 			read -p "Appuyer sur entrer pour continuer ..."
-        	;;
+fi
