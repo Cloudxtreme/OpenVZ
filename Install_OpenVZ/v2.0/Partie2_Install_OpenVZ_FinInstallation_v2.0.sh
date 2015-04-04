@@ -236,9 +236,10 @@ if [[ $selectVPS == "O" || $selectVPS = "o" ]]; then
         	clear
 			echo -e "\033[31mCreation D'un VPS\033[0m";
 			
-			echo -e "\n\033[31mTelechargement d'un templates\n\nListe des templates disponible:\n\033[0m";
+			echo -e "\033[31mTelechargement d'un templates\n\nListe des templates disponible:\n\033[0m";
 			vztmpl-dl --list-remote
-			echo -e "\n\033[31mEntrer le nom d'un template (ex: debian-7.0-x86_64-minimal):\033[0m"; read template;
+			
+			echo -e "\033[31mEntrer le nom d'un template (ex: debian-7.0-x86_64-minimal):\033[0m"; read template;
 			vztmpl-dl $template
 			
 			
