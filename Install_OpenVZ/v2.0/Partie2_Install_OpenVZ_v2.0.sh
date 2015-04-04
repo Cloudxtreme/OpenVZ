@@ -5,15 +5,14 @@ clear
 
 echo -e "\033[31mPartie 2 - Install OpenVZ";
 
-echo -e "\033[31mVoulez-vous configuration le réseaux en NAT pour les VPS (O/n): \033[0m"; read selectNAT;
-echo -e "\033[31mVoulez-vous insatller et configuration LVM2 (O/n): \033[0m"; read selectLVM2;
+echo -e "\n\033[31mVoulez-vous configuration le réseaux en NAT pour les VPS (O/n): \033[0m"; read selectNAT;
+echo -e "\033[31mVoulez-vous installer et configuration LVM2 (O/n): \033[0m"; read selectLVM2;
 echo -e "\033[31mVoulez-vous installer OpenVZ Web Panel (OWP) (O/n): \033[0m"; read selectOWP;
 echo -e "\033[31mVoulez-vous créé un VPS (O/n): \033[0m"; read selectVPS;
 
 if [[ $selectNAT == "O" || $selectNAT = "o" ]]; then
         	clear
-
-			echo -e "\033[31mPartie 2 - Configuration réseaux en NAT pour les VPS";
+			echo -e "\033[31mConfiguration réseaux en NAT pour les VPS";
 			
 			
 			######## Configuration réseau ########
@@ -59,14 +58,13 @@ iface eth0 inet static
 			
 			apt-get install iptables
 			
-			clear
-			
 			ip=`ifconfig eth0 | grep 'inet adr:' | cut -d: -f2 | awk '{ print $1}'` 
 			
-			echo -e "\n\n\n\033[31mVoulez pourvoir recevoir du ping ? (O/n): \033[0m"; read ping;
-			echo -e "\n\n\033[31mUtilisez-vous le protole ssh ? (O/n): \033[0m"; read ssh;
+			clear
+			echo -e "\033[31mVoulez pourvoir recevoir du ping ? (O/n): \033[0m"; read ping;
+			echo -e "\033[31mUtilisez-vous le protole ssh ? (O/n): \033[0m"; read ssh;
 				if [[ $ssh = "O" || $ssh = "o" ]]; then
-					echo -e "\n\033[31mQuel port utilisez-vous ? ('22', '2222'): \033[0m"; read ssh2;
+					echo -e "\033[31mQuel port utilisez-vous ? ('22', '2222'): \033[0m"; read ssh2;
 				fi
 			
 			echo -e "#!/bin/bash
@@ -131,7 +129,7 @@ iptables -t filter -A INPUT -p tcp --dport $ssh2 -j ACCEPT" >> /etc/init.d/iptab
 			echo -e "\n\033[31mVoici votre fichier de configuration NAT (/etc/init.d/iptables) \033[0m \n"
 			cat /etc/init.d/iptables
 			
-			echo -e "\n\n\033[31mConfiguration du NAT terminer, vous pourrez lancé la partie 3\033[0m \n"
+			echo -e "\n\n\033[31mConfiguration du NAT terminer\033[0m \n"
 			read -p "Appuyer sur entrer pour continuer ..."
 fi
 if [[ $selectLVM2 == "O" || $selectLVM2 = "o" ]]; then
@@ -140,8 +138,7 @@ if [[ $selectLVM2 == "O" || $selectLVM2 = "o" ]]; then
 			update-rc.d iptables defaults
 			
 			clear
-			
-			echo -e "\033[31mPartie 3 - Configuration de LVM2\033[0m\n\n";
+			echo -e "\033[31mConfiguration de LVM2\033[0m\n\n";
 			
 			apt-get install lvm2
 			
@@ -156,9 +153,8 @@ if [[ $selectLVM2 == "O" || $selectLVM2 = "o" ]]; then
 			vgcreate OpenVZ /dev/sda3
 			
 			clear
-			
-			echo -e "\n\n\033[31mNom du volume logique:\033[0m"; read lvname;
-			echo -e "\n\033[31mTailles du volume logique $lvname (ex: 10g):\033[0m"; read lvtaille;
+			echo -e "\033[31mNom du volume logique:\033[0m"; read lvname;
+			echo -e "\033[31mTailles du volume logique $lvname (ex: 10g):\033[0m"; read lvtaille;
 			
 			lvcreate -n $lvname -L $lvtaille OpenVZ
 			
@@ -170,7 +166,7 @@ if [[ $selectLVM2 == "O" || $selectLVM2 = "o" ]]; then
 			
 			clear
 			
-			echo -e "\n\n\033[31mSauvegarde de /etc/fstab vers /etc/fstab.save\033[0m"
+			echo -e "\033[31mSauvegarde de /etc/fstab vers /etc/fstab.save\033[0m"
 			cp /etc/fstab /etc/fstab.save
 			
 			echo -e "
@@ -183,14 +179,13 @@ if [[ $selectLVM2 == "O" || $selectLVM2 = "o" ]]; then
 			echo -e "\n\033[31mVotre volume logique est prêt:\033[0m"
 			lvdisplay
 			
-			echo -e "\n\033[31mLa configuration de LVM2 est terminer, vous pouvez lancé la partie 4\033[0m"
+			echo -e "\033[31mLa configuration de LVM2 est terminer\033[0m"
 			read -p "Appuyer sur entrer pour continuer ..."
 fi
 if [[ $selectOWP == "O" || $selectOWP = "o" ]]; then
 
         	clear
-
-			echo -e "\033[31mPartie 4 - Installation de OpenVZ Web Panel (OWP)\033[0m \n\n";
+			echo -e "\033[31mInstallation de OpenVZ Web Panel (OWP)\033[0m \n";
 			
 			apt-get install ruby1.8
 			
@@ -228,20 +223,18 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 			ip=`ifconfig eth0 | grep 'inet adr:' | cut -d: -f2 | awk '{ print $1}'` 
 			
 			clear
-			  
-			echo -e "\n\n\033[31mVotre interface OWP est accessible depuis votre navigateur à:
+			echo -e "\033[31mVotre interface OWP est accessible depuis votre navigateur à:
 http://$ip:3000
 login: admin
 Mot de Passe : admin"
 			
-			echo -e "\n\nL'installation de OpenVZ Web Panel est terminer, vous pourrez lancé la partie 5\033[0m \n"
+			echo -e "\nL'installation de OpenVZ Web Panel est terminer\033[0m \n"
 			read -p "Appuyer sur entrer pour continuer ..."
 fi
 if [[ $selectVPS == "O" || $selectVPS = "o" ]]; then
 
         	clear
-
-			echo -e "\033[31mPartie5 - Creation D'un VPS\033[0m";
+			echo -e "\033[31mCreation D'un VPS\033[0m";
 			
 			echo -e "\n\033[31mTelechargement d'un templates\nListe des templates disponible\n\033[0m";
 			vztmpl-dl --list-remote
@@ -259,16 +252,16 @@ if [[ $selectVPS == "O" || $selectVPS = "o" ]]; then
 			echo -e "\033[31mEntrer l'IP de conteneur (ex: '192.168.0.1') :\033[0m"; read ip_address;
 			echo -e "\033[31mEntrer le nom du conteneur :\033[0m"; read name;
 			echo -e "\033[31mEntrer le hostname du conteneur (FQDN) :\033[0m"; read FQDN;
-			echo -e "\033[31mEntrer la taille disque du conteneur (en kilo, ex: '2000000' pour 2g) :\033[0m"; read disque;
+			echo -e "\033[31mEntrer la taille disque du conteneur (en kilo, ex: '2000000' pour 2G) :\033[0m"; read disque;
 			echo -e "\033[31mEntrer la taille de la memoire RAM du conteneur (ex: '2G') :\033[0m"; read ram;
 			echo -e "\033[31mListe des volumes disponibles:\033[0m";
 			lvdisplay
-			echo -e "\n\033[31mEntrer le nom du volume (LV Name) ou le conteneur sera stocker :\033[0m"; read Volume;
-			echo -e "\n\033[31mUtiliser vous le mode NAT pour la configuration IP de votre VPS ? (O/n): \033[0m"; read NAT;
+			echo -e "\033[31mEntrer le nom du volume (LV Name) ou le conteneur sera stocker :\033[0m"; read Volume;
+			echo -e "\033[31mUtiliser vous le mode NAT pour la configuration IP de votre VPS ? (O/n): \033[0m"; read NAT;
 			if [[ $NAT = "O" || $NAT = "o" ]]; then
-				echo -e "\n\033[31mLe VPS utilisera t'elle un port particulier ? (O/n): \033[0m"; read port;
+				echo -e "\033[31mLe VPS utilisera t'elle un port particulier ? (O/n): \033[0m"; read port;
 					if [[ $port = "O" || $port = "o" ]]; then
-						echo -e "\n\033[31mQuel port utilisera t'elle ? ('22', '80'): \033[0m"; read port2;
+						echo -e "\033[31mQuel port utilisera t'elle ? ('22', '80'): \033[0m"; read port2;
 					fi
 			fi
 			
@@ -321,11 +314,11 @@ iptables -t nat -A PREROUTING -p tcp -d $ip --dport $port2 \
 			fi
 			
 			clear
-			
-			echo -e "\n\n\033[31mVotre conteneur est cree:\033[0m";
+			echo -e "\033[31mVotre conteneur est cree:\033[0m";
 			# Affichage VPS actifes
 			vzlist
 			
-			echo -e "\n\n\033[31mLa creation Du VPS est terminer, ainsi que l'installation de OpenVZ\033[0m \n"
-			read -p "Appuyer sur entrer pour continuer ..."
+			echo -e "\n\033[31mLa creation Du VPS est terminer\033[0m \n"
 fi
+echo -e "\n\033[31ml'installation de OpenVZ\033[0m \n"
+read -p "Appuyer sur entrer pour continuer ..."
