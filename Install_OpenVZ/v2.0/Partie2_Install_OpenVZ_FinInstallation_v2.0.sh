@@ -322,3 +322,4 @@ iptables -t nat -A PREROUTING -p tcp -d $ip --dport $port2 \
 fi
 echo -e "\n\033[31ml'installation de OpenVZ est terminer\033[0m \n"
 read -p "Appuyer sur entrer pour continuer ..."
+clear
