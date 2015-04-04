@@ -21,7 +21,11 @@ wget -O - http://ovz-web-panel.googlecode.com/svn/installer/ai.sh | sh
 
 /etc/init.d/owp reload
 
-sed "49i\ \n## On autoriser la connexion à OpenVZ Web Panel (OWP) \niptables -A INPUT --protocol tcp --destination-port 3000 -j ACCEPT " /etc/init.d/iptables
+iptables=$(sed "49i\ \n## On autoriser la connexion à OpenVZ Web Panel (OWP) \niptables -A INPUT --protocol tcp --destination-port 3000 -j ACCEPT " /etc/init.d/iptables)
+
+rm -rf /etc/init.d/iptables
+
+echo -e "$iptables" > /etc/init.d/iptables
 
 /etc/init.d/iptables reload
 
