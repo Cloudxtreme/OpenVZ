@@ -57,8 +57,7 @@ echo -e "\n\n\033[31mUtilisez-vous le protole ssh ? (O/n): \033[0m"; read ssh;
 		echo -e "\n\033[31mQuel port utilisez-vous ? ('22', '2222'): \033[0m"; read ssh2;
 	fi
 
-echo -e "
-#!/bin/bash
+echo -e "#!/bin/bash
 #/etc/init.d/iptable
 
 ### BEGIN INIT INFO
