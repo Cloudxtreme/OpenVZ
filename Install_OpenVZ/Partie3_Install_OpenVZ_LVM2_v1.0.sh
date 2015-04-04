@@ -22,7 +22,7 @@ pvcreate /dev/sda3
 vgcreate OpenVZ /dev/sda3
 
 echo -e "\n\n\033[31mNom du volume logique:\033[0m"; read lvname;
-echo -e "\n\n\033[31mTailles du volume logique $lvname (ex: 10g):\033[0m"; read lvtaille;
+echo -e "\n\033[31mTailles du volume logique $lvname (ex: 10g):\033[0m"; read lvtaille;
 
 lvcreate -n $lvname -L $lvtaille OpenVZ
 
