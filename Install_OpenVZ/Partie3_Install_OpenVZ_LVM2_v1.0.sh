@@ -45,5 +45,5 @@ mount -a
 echo -e "\n\033[31mVotre volume logique est prêt:\033[0m"
 lvdisplay
 
-echo -e "\n\033[31mVLa configuration de LVM2 est terminer, vous pouvez lancé la partie 4\033[0m"
+echo -e "\n\033[31mLa configuration de LVM2 est terminer, vous pouvez lancé la partie 4\033[0m"
 read -p "Appuyer sur entrer pour continuer ..."
