@@ -25,7 +25,7 @@ iptables=$(sed "49i\ \n## On autoriser la connexion à OpenVZ Web Panel (OWP) \n
 
 rm -rf /etc/init.d/iptables
 
-echo -e "$iptables" > /etc/init.d/iptables
+echo "$iptables" > /etc/init.d/iptables
 
 /etc/init.d/iptables reload
 
