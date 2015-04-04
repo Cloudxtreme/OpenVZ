@@ -91,7 +91,6 @@ iptables -A OUTPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
 iptables -t filter -A INPUT -i lo -j ACCEPT
 iptables -t filter -A OUTPUT -o lo -j ACCEPT
 
-
 #-------------------------------------------------------------------------
 # Routage VE vers internet
 #-------------------------------------------------------------------------
@@ -104,8 +103,7 @@ iptables -t nat -A POSTROUTING -s 0.0.0.0/0 -o eth0 -j SNAT --to $ip
 
 #-------------------------------------------------------------------------
 # Ouverture de port sur serveur
-#-------------------------------------------------------------------------
-" >> /etc/init.d/iptables
+#-------------------------------------------------------------------------" >> /etc/init.d/iptables
 if [[ $ping = "O" || $ping = "o" ]]; then
 	echo -e "
 ## On autorise le ping
