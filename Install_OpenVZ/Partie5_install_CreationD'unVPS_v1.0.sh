@@ -45,7 +45,7 @@ vzctl create $CTID --ostemplate $template --config basic --private=/var/lib/vz/p
 # Configuration
 #-------------------------------------------------------------------------
 
-vzctl set $CTIP --privvmpages $ram:$ram --save --setmod restart
+vzctl set $CTID --privvmpages $ram:$ram --save --setmod restart
 
 # Affectation d’une IP
 vzctl set $CTID --ipadd $ip_address --save
