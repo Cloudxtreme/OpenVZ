@@ -69,7 +69,7 @@ vzctl start $CTID
 
 
 # Démarage au boot du server OpenVZ
-vzctl set $CTID --onboot yes —save
+vzctl set $CTID --onboot yes --save
 
 # Reload OWP
 /etc/init.d/owp reload
