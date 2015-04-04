@@ -314,11 +314,11 @@ iptables -t nat -A PREROUTING -p tcp -d $ip --dport $port2 \
 			fi
 			
 			clear
-			echo -e "\033[31mVotre conteneur est cree:\033[0m";
+			echo -e "\033[31mVotre conteneur est créé:\033[0m";
 			# Affichage VPS actifes
 			vzlist
 			
 			echo -e "\n\033[31mLa creation Du VPS est terminer\033[0m"
 fi
-echo -e "\n\033[31ml'installation de OpenVZ\033[0m \n"
+echo -e "\n\033[31ml'installation de OpenVZ est terminer\033[0m \n"
 read -p "Appuyer sur entrer pour continuer ..."
