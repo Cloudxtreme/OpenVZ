@@ -11,6 +11,7 @@
 #------------------------------------------------
 Menu()
 {
+  clear
   local -a menu fonc
   local titre nbchoix
   # Constitution du menu
@@ -222,7 +223,6 @@ RestaureVPS()
 # M A I N . . .
 #================================================
 Menu \
-  clear
   "---- Managements VPS ----"	\
   Create_VPS    		"Créé un VPS"	\
   ChangeMdpRoot 		"Changer le mot de passe root d’un VPS"		\
