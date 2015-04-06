@@ -194,6 +194,18 @@ ChangeDNS()
    vzctl set $CTID --nameserver 8.8.8.8 --save
 }
 #-----------------------------------------------
+# Changer l'adresse IP
+#------------------------------------------------
+ChangeDNS()
+{
+   clear
+   echo -e "\033[31mVPS Actif\033[0m"
+   vzlist
+   echo -e "\033[31mEntrer le numéro du conteneur (ex: '101',102'):\033[0m"; read CTID;
+   echo -e "\033[31mEntrer l'IP du conteneur (ex: '192.168.0.1') :\033[0m"; read ip_address;
+   vzctl set $CTID --ipadd $ip_address --save
+}
+#-----------------------------------------------
 # Sauvegarder un VPS
 #------------------------------------------------
 BackupVPS()
@@ -217,7 +229,11 @@ RestaureVPS()
    vzlist
    echo -e "\033[31mOu se trouve l'archive du VPS ? (ex: /root/backup_101.tar):\033[0m"; read chemin;
    echo -e "\033[31mEntrer le numéro du conteneur (ex: '101',102'):\033[0m"; read CTID;
+   echo -e "\033[31mEntrer l'IP du conteneur (ex: '192.168.0.1') :\033[0m"; read ip_address;
    vzrestore $chemin $CTID
+   vzctl set $CTID --ipadd $ip_address --save
+   vzctl start $CTID
+   vzlist
 }
 #================================================
 # M A I N . . .
@@ -227,7 +243,8 @@ Menu \
   Create_VPS    		"Créé un VPS"	\
   ChangeMdpRoot 		"Changer le mot de passe root d’un VPS"		\
   ChangeRAM    			"Changer la taille de la mémoire RAM d’un VPS"	\
-  ChangeFQDN 			"Changer le hostname du conteneur (FQDN)"	\
-  ChangeDNS				"Changer le serveur DNS du conteneur"	\
+  ChangeFQDN 			"Changer le hostname d'un conteneur (FQDN)"	\
+  ChangeDNS				"Changer le serveur DNS d'un conteneur"	\
+  ChangeIP				"Changer l'adresse IP d'un conteneur"	\
   BackupVPS				"Sauvegarder un VPS"	\
   RestaureVPS			"Restaurer un VPS"	\
