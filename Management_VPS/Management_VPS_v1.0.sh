@@ -11,7 +11,6 @@
 #------------------------------------------------
 Menu()
 {
-  clear
   local -a menu fonc
   local titre nbchoix
   # Constitution du menu
