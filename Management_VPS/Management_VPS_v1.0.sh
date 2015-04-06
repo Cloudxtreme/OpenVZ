@@ -9,6 +9,8 @@
 #        $2n   = Fonction associée 'n' au choix
 #        $2n+1 = Libellé du choix 'n' du menu
 #------------------------------------------------
+clear
+
 Menu()
 {
   local -a menu fonc
