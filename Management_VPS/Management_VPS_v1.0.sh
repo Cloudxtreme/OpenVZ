@@ -196,7 +196,7 @@ ChangeDNS()
 #-----------------------------------------------
 # Changer l'adresse IP
 #------------------------------------------------
-ChangeDNS()
+ChangeIP()
 {
    clear
    echo -e "\033[31mVPS Actif\033[0m"
