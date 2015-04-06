@@ -55,7 +55,7 @@ Create_VPS()
 	echo -e "\033[31mTemplates à télécharger:\n\033[0m";
 	vztmpl-dl --list-remote
 	
-	echo -e "\033[31mTemplate dèjà télécharger:\n\033[0m";
+	echo -e "\n\033[31mTemplate dèjà télécharger:\n\033[0m";
 	vztmpl-dl --list-local
 	
 	echo -e "\n\033[31mVoulez-vous télécharger un template (O/n):\033[0m"; read selectNAT;
@@ -205,6 +205,7 @@ BackupVPS()
    mkdir /backup_VPS
    cd /backup_VPS
    vzdump $CTID
+   echo -e "\n\033[31mVotre VPS sauvegarder se trouve dans '/var/lib/vz/dump/':\033[0m"
 }
 #-----------------------------------------------
 # Restaurer un VPS
