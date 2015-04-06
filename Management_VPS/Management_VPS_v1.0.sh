@@ -202,8 +202,10 @@ ChangeIP()
    echo -e "\033[31mVPS Actif\033[0m"
    vzlist
    echo -e "\033[31mEntrer le numéro du conteneur (ex: '101',102'):\033[0m"; read CTID;
-   echo -e "\033[31mEntrer l'IP du conteneur (ex: '192.168.0.1') :\033[0m"; read ip_address;
-   vzctl set $CTID --ipadd $ip_address --save
+   echo -e "\033[31mEntrer l'ancienne IP du conteneur (ex: '192.168.0.1') :\033[0m"; read ip_address_add;
+   echo -e "\033[31mEntrer l'IP du conteneur (ex: '192.168.0.2') :\033[0m"; read ip_address_del;
+   vzctl set $CTID --ipdel $ip_address_del --save
+   vzctl set $CTID --ipadd $ip_address_add --save
 }
 #-----------------------------------------------
 # Sauvegarder un VPS
