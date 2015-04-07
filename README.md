@@ -7,7 +7,7 @@
 - Racine(/)
 - /vz
 
--- Installation--
+-- Installation --
 
 Lancé la partie 1 avec la commande :
 - bash Partie1_Install_OpenVZ_InstallNoyau_v2.0.sh
