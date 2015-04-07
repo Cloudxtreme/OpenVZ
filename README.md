@@ -1,13 +1,13 @@
 # OpenVZ
 
---- Utilisation de Install_OpenVZ ---
+------- Utilisation de Install_OpenVZ -------
 
 -- Le système de partitionnement doit être comme ceci:
 - Swap
 - Racine(/)
 - /vz
 
--- Installation
+-- Installation--
 Lancé la partie 1 avec la commande :
 - bash Partie1_Install_OpenVZ_InstallNoyau_v2.0.sh
 
