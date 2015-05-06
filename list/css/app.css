@@ -1,0 +1,51 @@
+.photos{
+	cursor:pointer;
+}
+
+/* Glisse: Overlay */
+#glisse-overlay {
+	background: rgba(0,0,0.3);
+}
+
+#glisse-close {
+	height: 40px;
+	width: 40px;
+	text-align: center;
+	position: fixed;
+	top:40px;
+	right:40px; 
+	background: transparent;
+	background-image: url('images/croix.png');
+}
+
+/* Prev/Next button */
+.glisse-next a, .glisse-prev a {
+	width: 40px;
+	height: 40px;
+	display: block;
+	position: fixed;
+	bottom: 10px;
+}
+
+.glisse-next a {
+	left: 50%;
+	margin-left: 20px; 
+	background-image: url('images/next.png');
+}
+
+.glisse-prev a {
+	left: 50%;
+	margin-left: -40px; 
+	background-image: url('images/prev.png');
+}
+
+/* Legend */
+.glisse-legend {
+	position:fixed;
+	display:block;
+	bottom:10px;
+	left:10px;
+	color:white;
+	background:transparent; 
+}
+
